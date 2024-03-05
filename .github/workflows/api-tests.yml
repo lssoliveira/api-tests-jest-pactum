@@ -11,7 +11,7 @@ on:
       - api-tests
   workflow_dispatch:
   repository_dispatch:
-    types: [run-external-tests]
+    types: run-external-tests
   
 jobs:
   build:
