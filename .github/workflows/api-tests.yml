@@ -1,0 +1,38 @@
+name: Api Tests Workflow
+
+on:
+  schedule:
+    - cron: '0 12 * * 1-5'
+  push:
+    branches: 
+      - api-tests
+  pull_request:
+    branches: 
+      - api-tests
+  workflow_dispatch:
+  repository_dispatch:
+    types: [run-external-tests]
+  
+jobs:
+  build:
+    name: Run Integration Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chekout Repository
+        uses: actions/checkout@v4.1.1
+      
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: 21
+          cache: 'npm'
+      
+      - run: npm install
+      - run: npm test
+
+      - name: Generate report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: Report
+          path: ./output
