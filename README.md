@@ -4,7 +4,7 @@
 
 ## GitHub Actions
 
-[![Node.js CI](https://github.com/lssoliveira/api-tests-jest-pactum/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/lssoliveira/api-tests-jest-pactum/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/workflows/)]
 
 ## SonarCloud
 

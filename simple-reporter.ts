@@ -7,12 +7,12 @@ export const SimpleReporter = {
 
     async afterSpec(spec: Reporter.SpecData): Promise<void> {
         const { start, end, request, response } = spec;
+
+        const startTime = new Date(parseInt(start, 10)).toLocaleString();
+        const endTime = new Date(parseInt(end, 10)).toLocaleString();
+
         await addMsg({
-            message: JSON.stringify(
-                { start, end, request, response },
-                undefined,
-                4
-            ),
+            message: JSON.stringify({ start: startTime, end: endTime, request, response }, undefined, 4),
             context: null
         });
     },
