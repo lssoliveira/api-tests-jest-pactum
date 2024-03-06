@@ -1,8 +1,8 @@
 name: Api Tests Workflow
 
 on:
-  schedule:
-    - cron: '0 12 * * 1-5'
+  # schedule:
+  #   - cron: '0 12 * * 1-5'
   push:
     branches: 
       - api-tests
